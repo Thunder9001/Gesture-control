@@ -7,8 +7,8 @@ public class HandMenuButtons : MonoBehaviour
 {
     public void PlayGame()
     {
-        Debug.Log("Main Menu");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log("Play");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Tutorial()
