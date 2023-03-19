@@ -5,16 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class HandMenuButtons : MonoBehaviour
 {
+    public void Menu()
+    {
+        Debug.Log("Menu");
+        SceneManager.LoadScene(0);
+    }
+
     public void PlayGame()
     {
         Debug.Log("Play");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(1);
     }
 
     public void Tutorial()
     {
         Debug.Log("Tutorial");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(2);
+    }
+
+    public void Reset()
+    {
+        Debug.Log("Menu");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitGame()
