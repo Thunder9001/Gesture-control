@@ -14,7 +14,7 @@ public class HandMenuButtons : MonoBehaviour
     public void PlayGame()
     {
         Debug.Log("Play");
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
     public void Tutorial()
