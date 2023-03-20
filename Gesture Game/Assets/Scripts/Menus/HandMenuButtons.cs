@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HandMenuButtons : MonoBehaviour
 {
+    // Code to change scenes using SceneManager
     public void Menu()
     {
         Debug.Log("Menu");
