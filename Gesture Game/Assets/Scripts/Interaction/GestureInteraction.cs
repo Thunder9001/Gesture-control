@@ -8,71 +8,61 @@ using Leap;
 public class GestureInteraction : MonoBehaviour
 {
     public LeapProvider leapProvider;
-    public Vector3 rHandDirection;
+    //Direction of Push and pull
+    Vector3 rHandDirection;
+    Vector3 rIndexFingerDirection;
+    Hand _rightHand;
+
 
     // Create a list of game objects one for each interaction.
-    List<GameObject> pushList;
-    List<GameObject> pullList;
+    public List<GameObject> pushList;
+    public List<GameObject> pullList;
     
-    public float speed = 1;
+    public float speed = 0.5f;
 
-    public bool push = false;
-    public bool pull = false;
-    
-    private void OnEnable()
-    {
-        leapProvider.OnUpdateFrame += OnUpdateFrame;
-    }
-    private void OnDisable()
-    {
-        leapProvider.OnUpdateFrame -= OnUpdateFrame;
-    }
-
-    void OnUpdateFrame(Frame frame)
-    {
-        //Use a helpul utility function to get the first hand that matches the Chirality
-        Hand _leftHand = frame.GetHand(Chirality.Left);
-        Hand _rightHand = frame.GetHand(Chirality.Right);
-    }
-
+    //Controlled by Leap detectors
+    bool push = false;
+    bool pull = false;
     public void Push()
     {
-        Debug.Log("X: " + rHandDirection.x + ", Y: " + rHandDirection.y + ", Z: " + rHandDirection.z);
         push = true;
     }
-    
-    public void StopInteraction()
+    public void StopPush()
     {
         push = false;
+    }
+    public void StopPull()
+    {
         pull = false;
     }
-
-    //TODO
     public void Pull()
     {
-
+        pull = true;
     }
     // Start is called before the first frame update
     void Start()
     {
         pushList = new List<GameObject>();
         pullList = new List<GameObject>();
-
-        rHandDirection = new Vector3(0.0f, 1.0f, 0.0f);
+        _rightHand = Hands.Right;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Hand _rightHand = Hands.Right;
-        rHandDirection.x = _rightHand.PalmNormal.x;
-        rHandDirection.y = _rightHand.PalmNormal.y;
-        rHandDirection.z = _rightHand.PalmNormal.z;
+        _rightHand = Hands.Right;
+        rHandDirection = new Vector3(_rightHand.PalmNormal.x, _rightHand.PalmNormal.y, _rightHand.PalmNormal.z).normalized;
+        rIndexFingerDirection = _rightHand.GetIndex().Direction.normalized;
         if (push == true)
         {
-            transform.Translate (rHandDirection * speed * Time.deltaTime);
+            transform.Translate (rHandDirection * speed * Time.deltaTime, Space.World);
+            print(rHandDirection);
         }
-        //TODO PULL
+        else if (pull == true)
+        {
+            transform.Translate(-rIndexFingerDirection * speed * Time.deltaTime, Space.World);
+            print(-rIndexFingerDirection);
+        }   
 
     }
 }
