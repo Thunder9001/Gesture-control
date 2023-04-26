@@ -12,16 +12,22 @@ public class HandMenuButtons : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void PlayGame()
+    public void PlayFruitNinja()
     {
         Debug.Log("Play");
         SceneManager.LoadScene(1);
     }
 
+    public void PlayCookingGame()
+    {
+        Debug.Log("Cooking Game");
+        SceneManager.LoadScene(2);
+    }
+
     public void Tutorial()
     {
         Debug.Log("Tutorial");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void Reset()
