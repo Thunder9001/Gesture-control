@@ -75,12 +75,10 @@ public class GestureInteraction : MonoBehaviour
         if (push == true)
         {
             transform.Translate (rHandDirection * speed * Time.deltaTime, Space.World);
-            print(rHandDirection);
         }
         else if (pull == true)
         {
             transform.Translate(-rIndexFingerDirection * speed * Time.deltaTime, Space.World);
-            print(-rIndexFingerDirection);
         }   
 
     }
