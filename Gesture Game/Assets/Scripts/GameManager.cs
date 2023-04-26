@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public GameState State;
 
     public int throwDelay;
-    bool isGameOver = false;
     public bool throwFruit = true;
 
     public int score;
