@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5876241449251747142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 16.7353}
+  m_LocalScale: {x: 14.242757, y: 14.242757, z: 23.83568}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 904239838769286383}
@@ -61,7 +61,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4963,6 +4963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: watermelon
       objectReference: {fileID: 0}
+    - target: {fileID: 1302987168735557994, guid: 2d76c6a676f62b04d83f309016f8d064, type: 3}
+      propertyPath: m_TagString
+      value: Uncut
+      objectReference: {fileID: 0}
     - target: {fileID: 1828165962242696144, guid: 2d76c6a676f62b04d83f309016f8d064, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5068,7 +5072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8682331566496885163, guid: d809050f53b785344add0ab6ba4df567, type: 3}
       propertyPath: m_VersionIndex
-      value: 39
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 8682331566672085296, guid: d809050f53b785344add0ab6ba4df567, type: 3}
       propertyPath: m_Mesh
@@ -5076,7 +5080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8682331566672085296, guid: d809050f53b785344add0ab6ba4df567, type: 3}
       propertyPath: m_VersionIndex
-      value: 39
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 8682331566672085299, guid: d809050f53b785344add0ab6ba4df567, type: 3}
       propertyPath: m_Mesh

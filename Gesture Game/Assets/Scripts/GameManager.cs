@@ -1,63 +1,138 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
-public enum GameState
-{
-    Start,
-    Pause,
-    GameOver
-}
-
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float moveSpeed;
     public static GameManager gameManager;
 
-    public GameState State;
-
     public int score;
+    public int lives;
     public int combo;
-    public int timeSecs;
     public TMP_Text scoreTxt;
+    public TMP_Text livesTxt;
     public TMP_Text comboTxt;
-    public TMP_Text timeTxt;
-    public TMP_Text GoScoreTxt;
-    public TMP_Text GoTimeTxt;
-    public TMP_Text GoMessage;
-    public TMP_Text startMsg;
+    public TMP_Text goScoreTxt;
+    public TMP_Text goMessage;
+    public Image explodeFade;
+    public Canvas gameUI;
+    public Canvas gameOver;
+
+    public Blade blade;
+    public FruitThrower fruitThrower;
 
 
     private void Awake()
     {
-        gameManager = this;
-        startMsg.text = "Cut the fruit, avoid or push away the bombs";
+        NewGame();
+        blade = FindObjectOfType<Blade>();
+        fruitThrower = FindObjectOfType<FruitThrower>();
+        gameOver.enabled = false;
+        gameUI.enabled = true;
+
+    }
+    
+    private void NewGame()
+    {
+        blade.enabled = true;
+        fruitThrower.enabled = true;
+
+        score = 0;
+        combo = 0;
+        scoreTxt.text = "Score: " + score.ToString();
+        comboTxt.text = "Combo: " + combo.ToString();
+        livesTxt.text = "Lives: " + lives.ToString();
+        Debug.Log(lives);
+        Time.timeScale = 1f;
+
+        Clear();
     }
 
-    
+    private void EndGame()
+    {
+        blade.enabled = false;
+        fruitThrower.enabled = false;
+        gameOver.enabled = true;
+        gameUI.enabled = false;
+
+        goMessage.text = "Good job!\n Your final score was:\n";
+        goScoreTxt.text = score.ToString();
+
+        
+    }
+    private void Clear()
+    {
+        Fruit[] fruits = FindObjectsOfType<Fruit>();
+        foreach (Fruit f in fruits)
+        {
+            Destroy(f.gameObject);
+        }
+
+        Bomb[] bombs = FindObjectsOfType<Bomb>();
+        foreach (Bomb b in bombs)
+        {
+            Destroy(b.gameObject);
+        }
+    }
+
+    public void ResetCombo()
+    {
+        combo = 0;
+        comboTxt.text = "Combo: " + combo.ToString();
+    }
+    public void DecreaseLives()
+    {
+        lives -= 1;
+        livesTxt.text = "Lives: " + lives.ToString();
+        ResetCombo();
+        if(lives <= 0)
+        {
+            Explode();
+            EndGame();
+        }
+    }
 
     public void IncreaseScore(int points)
     {
-        score += points;
-        scoreTxt.text = score.ToString();
+        combo += 1;
+        score += points + combo;
+        scoreTxt.text = "Score: " + score.ToString();
+        comboTxt.text = "Combo: " + combo.ToString();
     }
 
-    // Update is called once per frame
-    public void UpdateGameState(GameState newState)
+    public void Explode()
     {
-        State = newState;
-        switch (newState)
-        {
-            case GameState.Start:
+        blade.enabled = false;
+        fruitThrower.enabled = false;
 
-                break;
-            case GameState.Pause:
-                break;
-            case GameState.GameOver:
-                break;
+        StartCoroutine(ExplodeSequence());
+    }
+
+    private IEnumerator ExplodeSequence()
+    {
+        float elapsed = 0;
+        float duration = 0.5f;
+        while(elapsed < duration)
+        {
+            float pct = Mathf.Clamp01(elapsed / duration);
+            explodeFade.color = Color.Lerp(Color.clear, Color.white, pct);
+            Time.timeScale = 1f - pct;
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
         }
-        
+
+        yield return new WaitForSecondsRealtime(1f);
+
+        EndGame();
+        elapsed = 0f;
+        while(elapsed < duration)
+        {
+            float pct = Mathf.Clamp01(elapsed / duration);
+            explodeFade.color = Color.Lerp(Color.white, Color.clear, pct);
+            Time.timeScale = 1f - pct;
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
     }
 }

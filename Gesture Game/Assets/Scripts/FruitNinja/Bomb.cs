@@ -1,34 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
 
-public class Fruit : MonoBehaviour
+public class Bomb : MonoBehaviour
 {
     public GameObject whole;
     public GameObject sliced;
 
-    private Rigidbody fruitRigidbody;
-    private Collider fruitCollider;
-    private ParticleSystem juiceParticles;
+    private Rigidbody bombRigidbody;
+    private Collider bombCollider;
+    private ParticleSystem explosionParticles;
 
-    public int points = 1;
     public bool cut = false;
 
     private void Awake()
     {
-        fruitRigidbody = GetComponent<Rigidbody>();
-        fruitCollider = GetComponent<Collider>();
-        juiceParticles = GetComponentInChildren<ParticleSystem>();
+        bombRigidbody = GetComponent<Rigidbody>();
+        bombCollider = GetComponent<Collider>();
+        explosionParticles = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Slice(Vector3 dir, Vector3 pos, float force)
     {
-        FindObjectOfType<GameManager>().IncreaseScore(points);
+        FindObjectOfType<GameManager>().DecreaseLives();
         whole.SetActive(false);
         sliced.SetActive(true);
-        fruitCollider.enabled = true;
-        juiceParticles.Play();
+        bombCollider.enabled = true;
+        explosionParticles.Play();
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         sliced.transform.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -36,17 +34,17 @@ public class Fruit : MonoBehaviour
         Rigidbody[] slices = sliced.GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody s in slices)
         {
-            s.velocity = fruitRigidbody.velocity;
+            s.velocity = bombRigidbody.velocity;
             s.AddForceAtPosition(dir * force, pos, ForceMode.Impulse);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && cut == false)
-        {
+       if(other.gameObject.CompareTag("Player") && cut == false)
+       {
             cut = true;
             Blade blade = other.GetComponent<Blade>();
             Slice(blade.dir, blade.transform.position, blade.sliceForce);
-        }
+       }
     }
 }

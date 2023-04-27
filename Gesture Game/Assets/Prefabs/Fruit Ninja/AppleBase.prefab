@@ -4880,8 +4880,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5365206993894483195}
   - component: {fileID: 6813864749262468851}
-  - component: {fileID: 7036616626231539403}
   - component: {fileID: 1801845515610712344}
+  - component: {fileID: 3041586153309415286}
   m_Layer: 0
   m_Name: AppleBase
   m_TagString: Untagged
@@ -4898,7 +4898,7 @@ Transform:
   m_GameObject: {fileID: 5781024381032972301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.19418025, y: 0.88582635, z: 0.47214806}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.065844, y: 2.065844, z: 2.065844}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7374690167742429819}
@@ -4917,26 +4917,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &7036616626231539403
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781024381032972301}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -472147775963580301, guid: 63c8a496deff7be4cb41c76da5598617, type: 3}
 --- !u!114 &1801845515610712344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4951,6 +4937,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whole: {fileID: 7859899613659668673}
   sliced: {fileID: 6027730540327185257}
+  points: 1
+--- !u!135 &3041586153309415286
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781024381032972301}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3305454518550765013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4961,6 +4961,10 @@ PrefabInstance:
     - target: {fileID: 3787996010281930049, guid: 9d18b1d61d6e40944b764c3b743c4158, type: 3}
       propertyPath: m_AngularDrag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787996010281930049, guid: 9d18b1d61d6e40944b764c3b743c4158, type: 3}
+      propertyPath: m_Constraints
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3906916994187458174, guid: 9d18b1d61d6e40944b764c3b743c4158, type: 3}
       propertyPath: m_Mesh
@@ -4982,6 +4986,10 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8804785390688835497, guid: 9d18b1d61d6e40944b764c3b743c4158, type: 3}
+      propertyPath: m_Constraints
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9113484242153831064, guid: 9d18b1d61d6e40944b764c3b743c4158, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4992,7 +5000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9113484242153831071, guid: 9d18b1d61d6e40944b764c3b743c4158, type: 3}
       propertyPath: m_VersionIndex
-      value: 24
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9113484242168213168, guid: 9d18b1d61d6e40944b764c3b743c4158, type: 3}
       propertyPath: m_Mesh
@@ -5000,7 +5008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9113484242168213168, guid: 9d18b1d61d6e40944b764c3b743c4158, type: 3}
       propertyPath: m_VersionIndex
-      value: 33
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 9113484242168213169, guid: 9d18b1d61d6e40944b764c3b743c4158, type: 3}
       propertyPath: m_Mesh
@@ -5124,6 +5132,10 @@ PrefabInstance:
     - target: {fileID: 2099835111569873401, guid: 5ac0bd47dd954984e8e779aaae92aa2b, type: 3}
       propertyPath: m_Name
       value: apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099835111569873401, guid: 5ac0bd47dd954984e8e779aaae92aa2b, type: 3}
+      propertyPath: m_TagString
+      value: Uncut
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7384603725940222261, guid: 5ac0bd47dd954984e8e779aaae92aa2b, type: 3}

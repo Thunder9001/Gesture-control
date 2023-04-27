@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class FruitThrower : MonoBehaviour
@@ -7,6 +8,10 @@ public class FruitThrower : MonoBehaviour
     private Collider spawnArea;
 
     public GameObject[] fruits;
+    public GameObject bomb;
+
+    [Range(0f, 1f)]
+    public float bombChance = 0.05f;
     public float minSpawnDelay = 0.2f;
     public float maxSpawnDelay = 1f;
 
@@ -36,7 +41,7 @@ public class FruitThrower : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         while (enabled)
         {
             Vector3 pos = new Vector3()
@@ -46,16 +51,25 @@ public class FruitThrower : MonoBehaviour
                 z = Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z)
             };
 
+
+
             Quaternion rot = Quaternion.Euler(0f, 0f, Random.Range(minAngle, maxAngle));
-            int rand = Random.Range(0, fruits.Length);
             GameObject fruit;
-            if (rand == 4)
+            if (Random.value > bombChance)
             {
-                fruit = Instantiate(fruits[rand], pos, Quaternion.Euler(0f, 90f, 0f));
+                int rand = Random.Range(0, fruits.Length);
+                if (rand == 4)
+                {
+                    fruit = Instantiate(fruits[rand], pos, Quaternion.Euler(0f, 90f, 0f));
+                }
+                else
+                {
+                    fruit = Instantiate(fruits[rand], pos, rot);
+                }
             }
             else
             {
-                fruit = Instantiate(fruits[rand], pos, rot);
+                fruit = Instantiate(bomb, pos, rot);
             }
             Destroy(fruit, maxLifetime);
             float force = Random.Range(minForce, maxForce);
