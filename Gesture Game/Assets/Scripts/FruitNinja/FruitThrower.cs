@@ -47,7 +47,16 @@ public class FruitThrower : MonoBehaviour
             };
 
             Quaternion rot = Quaternion.Euler(0f, 0f, Random.Range(minAngle, maxAngle));
-            GameObject fruit = Instantiate(fruits[Random.Range(0, fruits.Length)], pos, rot);
+            int rand = Random.Range(0, fruits.Length);
+            GameObject fruit;
+            if (rand == 4)
+            {
+                fruit = Instantiate(fruits[rand], pos, Quaternion.Euler(0f, 90f, 0f));
+            }
+            else
+            {
+                fruit = Instantiate(fruits[rand], pos, rot);
+            }
             Destroy(fruit, maxLifetime);
             float force = Random.Range(minForce, maxForce);
             fruit.GetComponent<Rigidbody>().AddForce(fruit.transform.up * force, ForceMode.Impulse);

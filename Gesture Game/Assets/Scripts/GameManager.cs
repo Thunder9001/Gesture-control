@@ -18,9 +18,6 @@ public class GameManager : MonoBehaviour
 
     public GameState State;
 
-    public int throwDelay;
-    public bool throwFruit = true;
-
     public int score;
     public int combo;
     public int timeSecs;
@@ -39,15 +36,11 @@ public class GameManager : MonoBehaviour
         startMsg.text = "Cut the fruit, avoid or push away the bombs";
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
-    public void updateScore()
+    public void IncreaseScore(int points)
     {
-        score += 1;
+        score += points;
         scoreTxt.text = score.ToString();
     }
 
