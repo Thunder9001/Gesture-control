@@ -89,7 +89,6 @@ public class GameManager : MonoBehaviour
         if(lives <= 0)
         {
             Explode();
-            EndGame();
         }
     }
 
@@ -121,12 +120,9 @@ public class GameManager : MonoBehaviour
             elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
-
-        yield return new WaitForSecondsRealtime(1f);
-
-        EndGame();
-        elapsed = 0f;
-        while(elapsed < duration)
+        yield return new WaitForSecondsRealtime(0.5f);
+        elapsed = 0;
+        while (elapsed < duration)
         {
             float pct = Mathf.Clamp01(elapsed / duration);
             explodeFade.color = Color.Lerp(Color.white, Color.clear, pct);
@@ -134,5 +130,8 @@ public class GameManager : MonoBehaviour
             elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
+        EndGame();
+
+        Time.timeScale = 1f;
     }
 }

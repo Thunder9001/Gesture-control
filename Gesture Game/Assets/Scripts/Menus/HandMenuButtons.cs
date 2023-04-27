@@ -14,7 +14,7 @@ public class HandMenuButtons : MonoBehaviour
 
     public void PlayFruitNinja()
     {
-        Debug.Log("Play");
+        Debug.Log("FruitNinja");
         SceneManager.LoadScene(1);
     }
 
