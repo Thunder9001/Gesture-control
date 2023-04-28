@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
+// Code adapted to work with Leap Controller and sourced from a tutorial
+// Original source repo: https://github.com/zigurous/unity-fruit-ninja-tutorial
 public class FruitThrower : MonoBehaviour
 {
     private Collider spawnArea;

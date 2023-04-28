@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Code adapted from fruit ninja tutorial.
+// Code adapted to work with Leap Controller and sourced from a tutorial
 //Original code can be found here https://github.com/zigurous/unity-fruit-ninja-tutorial  
 public class Blade : MonoBehaviour
 {

@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
 
+// Code adapted to work with Leap Controller and sourced from a tutorial
+// Original source repo: https://github.com/zigurous/unity-fruit-ninja-tutorial
 public class Fruit : MonoBehaviour
 {
     public GameObject whole;
@@ -45,6 +44,8 @@ public class Fruit : MonoBehaviour
         if (other.CompareTag("Player") && cut == false)
         {
             cut = true;
+            FindObjectOfType<AudioManager>().Play("cut");
+            FindObjectOfType<AudioManager>().Play("splash");
             Blade blade = other.GetComponent<Blade>();
             Slice(blade.dir, blade.transform.position, blade.sliceForce);
         }

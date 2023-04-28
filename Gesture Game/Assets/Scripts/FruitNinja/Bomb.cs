@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Code adapted to work with Leap Controller and sourced from a tutorial
+// Original source repo: https://github.com/zigurous/unity-fruit-ninja-tutorial
+
 public class Bomb : MonoBehaviour
 {
     public GameObject whole;
@@ -43,6 +46,7 @@ public class Bomb : MonoBehaviour
        if(other.gameObject.CompareTag("Player") && cut == false)
        {
             cut = true;
+            FindObjectOfType<AudioManager>().Play("explosion");
             Blade blade = other.GetComponent<Blade>();
             Slice(blade.dir, blade.transform.position, blade.sliceForce);
        }

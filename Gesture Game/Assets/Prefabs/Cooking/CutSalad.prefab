@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1880153419083047082}
   - component: {fileID: 6394870294497550672}
   - component: {fileID: 8856046843270268425}
+  - component: {fileID: 8171783243946704750}
+  - component: {fileID: 6954769693183399782}
   m_Layer: 0
   m_Name: CutSalad
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672210165111275185}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.6, z: -2.89}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 11.3074, y: 11.3074, z: 11.3074}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,3 +85,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8171783243946704750
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672210165111275185}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2597519522473998463, guid: 779f93bc643c3674ba10fb6ebe09635c, type: 3}
+--- !u!54 &6954769693183399782
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672210165111275185}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
