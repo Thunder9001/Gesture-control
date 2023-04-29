@@ -24,6 +24,7 @@ public class Burger : MonoBehaviour
         if (collider.gameObject.name.Contains("BunBase") && state == 0)
         {
             NextState();
+            FindObjectOfType<CookingGameManager>().NextState();
             Destroy(collider.gameObject);
             Debug.Log(state);
         }
@@ -31,18 +32,21 @@ public class Burger : MonoBehaviour
         if (collider.gameObject.name.Contains("Patty") && state == 1)
         {
             NextState();
+            FindObjectOfType<CookingGameManager>().NextState();
             Destroy(collider.gameObject);
             Debug.Log(state);
         }
         if (collider.gameObject.name.Contains("Cheese") && state == 2)
         {
             NextState();
+            FindObjectOfType<CookingGameManager>().NextState();
             Destroy(collider.gameObject);
             Debug.Log(state);
         }
         if (collider.gameObject.name.Contains("CutTomatoes") && state == 3)
         {
             NextState();
+            FindObjectOfType<CookingGameManager>().NextState();
             Destroy(collider.gameObject);
             Debug.Log(state);
         }
@@ -52,6 +56,7 @@ public class Burger : MonoBehaviour
             Debug.Log(state);
             Destroy(collider.gameObject);
             NextState();
+            FindObjectOfType<CookingGameManager>().NextState();
             Debug.Log(state);
         }
     }

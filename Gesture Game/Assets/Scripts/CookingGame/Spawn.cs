@@ -20,7 +20,7 @@ public class Spawn : MonoBehaviour
 
     public void SpawnMeat()
     {
-        if (mCount < maxItems)
+        if (mCount < maxItems && checkState() == 1)
         {
             FindObjectOfType<AudioManager>().Play("pop");
             Instantiate(meat, transform.position, transform.rotation);
@@ -31,16 +31,16 @@ public class Spawn : MonoBehaviour
 
     public void SpawnTomato()
     {
-        if (tCount < maxItems)
+        if (tCount < maxItems && checkState() == 3)
         {
             FindObjectOfType<AudioManager>().Play("pop");
-            Instantiate(tomato, transform.position, transform.rotation);
+            Instantiate(tomato, transform.position, Quaternion.Euler(-90f, 0f, 0f));
             tCount++;
         }
     }
     public void SpawnLettuce()
     {
-        if (lCount < maxItems)
+        if (lCount < maxItems && checkState() == 4)
         {
             FindObjectOfType<AudioManager>().Play("pop");
             Instantiate(lettuce, transform.position, transform.rotation);
@@ -49,7 +49,7 @@ public class Spawn : MonoBehaviour
     }
     public void SpawnCheese()
     {
-        if (cCount < maxItems)
+        if (cCount < maxItems && checkState() == 2)
         {
             FindObjectOfType<AudioManager>().Play("pop");
             Instantiate(cheese, transform.position, transform.rotation);
@@ -58,11 +58,16 @@ public class Spawn : MonoBehaviour
     }
     public void SpawnBuns()
     {
-        if (bCount < maxItems)
+        if (bCount < maxItems && checkState() == 0)
         {
             FindObjectOfType<AudioManager>().Play("pop");
             Instantiate(buns, transform.position, transform.rotation);
             bCount++;
         }
+    }
+
+    private int checkState()
+    {
+        return FindObjectOfType<CookingGameManager>().getState();
     }
 }

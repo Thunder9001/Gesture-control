@@ -5320,4 +5320,4 @@ MonoBehaviour:
   progressBar: {fileID: 4185839408291761662}
   canvas: {fileID: 3479971476779270107}
   cooked: {fileID: 4948917166395284633, guid: 09d73367a07f31d48b74c23cfe3933cc, type: 3}
-  duration: 10
+  duration: 5
