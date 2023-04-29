@@ -3832,6 +3832,12 @@ MonoBehaviour:
     pitch: 1.02
     loop: 0
     source: {fileID: 0}
+  - name: cut
+    clip: {fileID: 8300000, guid: 9a2c74f58f4707f4caff82a39bdc76fb, type: 3}
+    volume: 0.05
+    pitch: 1.37
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &1381472195
 Transform:
   m_ObjectHideFlags: 0
@@ -4479,7 +4485,7 @@ Transform:
   m_GameObject: {fileID: 1682613368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.832, y: 0, z: 0.359}
-  m_LocalScale: {x: 0.1, y: 3, z: 4.2952}
+  m_LocalScale: {x: 0.1, y: 4, z: 4.2952}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 35981387}
@@ -4759,8 +4765,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775331493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.846, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 3, z: 3.0759}
+  m_LocalPosition: {x: -1.846, y: 0, z: 0.359}
+  m_LocalScale: {x: 0.1, y: 4, z: 4.2952}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 35981387}

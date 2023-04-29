@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Code adapted to work with Leap Controller and sourced from a tutorial
+// Code adapted to work with Leap Controller and sourced from Fruit Ninja tutorial below
 // Original source repo: https://github.com/zigurous/unity-fruit-ninja-tutorial
 
 public class GameManager : MonoBehaviour

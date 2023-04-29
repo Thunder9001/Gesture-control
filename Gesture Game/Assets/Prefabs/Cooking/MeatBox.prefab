@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7994809059204002969
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 397508466860263014, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 397508466860263014, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnMeat
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175878958520510920, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853315796337748512, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_text
+      value: Meat Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486790928222227059, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e21ceaedeeab0294682be77f065d2fca, type: 2}
+    - target: {fileID: 3738683405203657943, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
+      propertyPath: m_Name
+      value: MeatBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35ca6ac9cdc7ca14cbf02d1f115b515d, type: 3}
