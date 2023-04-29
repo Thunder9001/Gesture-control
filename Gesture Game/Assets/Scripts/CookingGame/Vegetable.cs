@@ -1,3 +1,4 @@
+using Leap;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
@@ -37,7 +38,7 @@ public class Vegetable : MonoBehaviour
 
         if (other.gameObject.name == "CuttingBoard")
         {
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
             canvas.gameObject.SetActive(true);
             cuttable = true;
         }
@@ -50,7 +51,14 @@ public class Vegetable : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        collided = false;
+        if (collision.gameObject.name == "knife")
+        {
+            collided = false;
+        }
+        if (collision.gameObject.name == "CuttingBoard")
+        {
+            cuttable = false;
+        }
     }
 
     private void SwitchObjects()

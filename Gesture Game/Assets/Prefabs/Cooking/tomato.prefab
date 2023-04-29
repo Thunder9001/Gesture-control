@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 5241827337590705971}
   - component: {fileID: 3520292934138849828}
   m_Layer: 0
-  m_Name: tomato
-  m_TagString: Untagged
+  m_Name: Tomato
+  m_TagString: Pullable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2786845104754358121}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.665347, y: 4.665347, z: 4.235718}
+  m_LocalScale: {x: 9.366151, y: 9.366151, z: 8.503627}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7652949894070208413}
@@ -104,7 +104,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!64 &9114113778124980840
 MeshCollider:

@@ -1,18 +1,65 @@
+using Leap.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using UnityEngine;
 
 public class Burger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject burger;
+    private int state = 0;
+
+    private GameObject instance;
+    private void Awake()
     {
-        
+        foreach (Transform c in burger.transform.GetChildren())
+        {
+            c.gameObject.SetActive(false);
+        }
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.03f, transform.position.z);
+        instance = Instantiate(burger, pos, transform.rotation);
+    }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.name.Contains("BunBase") && state == 0)
+        {
+            NextState();
+            Destroy(collider.gameObject);
+            Debug.Log(state);
+        }
+
+        if (collider.gameObject.name.Contains("Patty") && state == 1)
+        {
+            NextState();
+            Destroy(collider.gameObject);
+            Debug.Log(state);
+        }
+        if (collider.gameObject.name.Contains("Cheese") && state == 2)
+        {
+            NextState();
+            Destroy(collider.gameObject);
+            Debug.Log(state);
+        }
+        if (collider.gameObject.name.Contains("CutTomatoes") && state == 3)
+        {
+            NextState();
+            Destroy(collider.gameObject);
+            Debug.Log(state);
+        }
+        if (collider.gameObject.name.Contains("CutSalad") && state == 4)
+        {
+            NextState();
+            Debug.Log(state);
+            Destroy(collider.gameObject);
+            NextState();
+            Debug.Log(state);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void NextState()
     {
-        
+        FindObjectOfType<AudioManager>().Play("pop");
+        instance.transform.GetChild(state).gameObject.SetActive(true);
+        state++;
     }
 }

@@ -22,6 +22,8 @@ public class Meat : MonoBehaviour
     private Collider cd;
 
     private bool isCooked = false;
+    private bool contact = false;
+    private float elapsed = 0f;
 
     private void Awake()
     {
@@ -38,9 +40,20 @@ public class Meat : MonoBehaviour
         if (other.gameObject.name == "Cooktop")
         {
             canvas.gameObject.SetActive(true);
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            this.gameObject.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
             cookParticles.Play();
+            contact = true;
             FindObjectOfType<AudioManager>().Play("sizzle");
+            StartCoroutine(CookMeat());
+        }
+    }
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.name == "Cooktop")
+        {
+            contact = false;
+            rb.constraints = RigidbodyConstraints.None;
             StartCoroutine(CookMeat());
         }
     }
@@ -65,8 +78,7 @@ public class Meat : MonoBehaviour
     }
     IEnumerator CookMeat()
     {
-        float elapsed = 0f;
-        while(isCooked == false)
+        while(isCooked == false && contact == true)
         {
             float progress = Mathf.Clamp01(elapsed / duration);
             progressBar.value = progress;

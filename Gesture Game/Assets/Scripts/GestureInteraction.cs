@@ -7,11 +7,8 @@ using Leap;
 
 public class GestureInteraction : MonoBehaviour
 {
-    public LeapProvider leapProvider;
-
     // Create a list of game objects one for each interaction.
-    public List<GameObject> pushList;
-    public List<GameObject> pullList;
+    public GameObject[] pullList;
     
     public float speed = 0.5f;
 
@@ -19,6 +16,10 @@ public class GestureInteraction : MonoBehaviour
     bool push = false;
     bool pull = false;
 
+    private void Awake()
+    {
+        pullList = GameObject.FindGameObjectsWithTag("Pullable");
+    }
     //Get palm ui element
 
     public void Push()
@@ -58,12 +59,6 @@ public class GestureInteraction : MonoBehaviour
     public bool CheckPalmUI()
     {
         return false;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        pushList = new List<GameObject>();
-        pullList = new List<GameObject>();
     }
 
     // Update is called once per frame

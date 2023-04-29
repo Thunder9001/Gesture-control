@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Uncut
   - Bomb
+  - Pullable
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5290119749568896697, guid: f6d1f98de2a11ca44aef718d1cf97bcc, type: 3}
       propertyPath: m_text
-      value: TomatoBox
+      value: Tomato Box
       objectReference: {fileID: 0}
     - target: {fileID: 6706208134825910350, guid: f6d1f98de2a11ca44aef718d1cf97bcc, type: 3}
       propertyPath: m_Name
