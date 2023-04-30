@@ -37,6 +37,7 @@ public class Vegetable : MonoBehaviour
         if (other.gameObject.name == "CuttingBoard")
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
+            transform.position = other.gameObject.GetComponentInChildren<Transform>().position;
             canvas.gameObject.SetActive(true);
             cuttable = true;
         }
